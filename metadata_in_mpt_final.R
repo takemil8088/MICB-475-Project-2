@@ -46,17 +46,24 @@ meta_novir <- filter(metadata_HIV_neg, hcv == "NO")
 
 #and save metadata_filtered for now as RData
 save(metadata_filtered, file = 'metadata_filt.RData')
-save(meta_novir, file = 'metadata_novirus.RData`)
 
 #metadata <- do.call(rbind.data.frame, metadata_other)#turned the columns into rows ;-; 
 
 
-#for the old file?? not really needed
 #load the new file, used code from manual load
 library(readr)
 depression_metadata <- read_csv("depression_metadata.csv") 
 #resulting table should have 86 columns and 1032 samples
 
 
-#merge the new with the old??? not really necessary cause the old one also had BDI
+#load tibble library
+library(tibble)
+# change meta_novir rownames to column used for join (dep. metadata has sample-id)
+meta_novir <- rownames_to_column(meta_novir)
 
+#merge the meta_novir with the depression metadata
+meta_joined <- left_join(meta_novir, depression_metadata, by = join_by(`rowname` == `sample-id`))
+#duplicate columns ended up as .x and .y, so should check that values are the same then remove the duplicate columns
+
+#save
+save(meta_joined, file = "metadata_join.RData")
