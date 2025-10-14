@@ -32,6 +32,16 @@ Questions:
 - is sample size big enough
 - should we remove some not depressed
 - What is wrong with Veronika's file (longmeta_phyloseq_rare.RData)
+
+Team meeting dicussions:
+- We should equalize the sample number for depressed & not depressed
+- The completed metadata doesn't include blood pressure results; must add and match with existing filtered out data
+- 3 columns --> depression, blood pressure, & a column with both - "depression_highbp, depression_lowbp"
+- Above 20 for bdi, considered depressed
+- potentialy 3 categories for depression caterogization
+- Filter out NAs for blood pressure result
+- Must categorize blood pressure results --> make sure we still have enough sample
+- Start proposal: (assignment 3 module) -  refraction etc. 
   
 
 
