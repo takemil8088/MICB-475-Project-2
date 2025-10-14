@@ -21,8 +21,11 @@ What we did from last week:
 - Filtered for HIV and hcv, found number of depressed (57) and not depressed(99) within this population
 
 Goal: 
+
 - determine best ways to work on the files
+
 -determine how we want to document
+
 Questions:
 - whould we be working with the dataset on the server or transferring it to our local computer
 - can we move a copy of it into our data folder
