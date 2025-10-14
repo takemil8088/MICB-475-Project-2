@@ -41,8 +41,12 @@ metadata_filtered <- filter(metadata_dep_cat, !is.na(dep_cat)) #213 are empty, 6
 metadata_HIV_pos <- filter(metadata_filtered, hiv_status_clean == "HIV+") #444 samples left
 metadata_HIV_neg <- filter(metadata_filtered, hiv_status_clean == "HIV-") #172 samples left
 
+#clear for all virus
+meta_novir <- filter(metadata_HIV_neg, hcv == "NO")
+
 #and save metadata_filtered for now as RData
 save(metadata_filtered, file = 'metadata_filt.RData')
+save(meta_novir, file = 'metadata_novirus.RData`)
 
 #metadata <- do.call(rbind.data.frame, metadata_other)#turned the columns into rows ;-; 
 
@@ -52,5 +56,6 @@ save(metadata_filtered, file = 'metadata_filt.RData')
 library(readr)
 depression_metadata <- read_csv("depression_metadata.csv") 
 #resulting table should have 86 columns and 1032 samples
+
 
 #merge the new with the old??? not really necessary cause the old one also had BDI
