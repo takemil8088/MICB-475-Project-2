@@ -41,6 +41,6 @@ Team meeting dicussions:
 - potentialy 3 categories for depression caterogization
 - Filter out NAs for blood pressure result
 - Must categorize blood pressure results --> make sure we still have enough sample
-- Start proposal: (assignment 3 module) -  refraction etc. 
+- Start proposal: (assignment 3 module) -  refraction etc. --> questions must be aided by literature with strong citations
 
 
