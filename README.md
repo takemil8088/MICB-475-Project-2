@@ -35,13 +35,12 @@ Questions:
 
 Team meeting dicussions:
 - We should equalize the sample number for depressed & not depressed
-- The completed metadata doesn't include blood pressure results; must add and match with existing filtered out data
+- The completed metadata doesn't include blood pressure results; must add and match with existing filtered out data (join data)
 - 3 columns --> depression, blood pressure, & a column with both - "depression_highbp, depression_lowbp"
 - Above 20 for bdi, considered depressed
 - potentialy 3 categories for depression caterogization
 - Filter out NAs for blood pressure result
 - Must categorize blood pressure results --> make sure we still have enough sample
 - Start proposal: (assignment 3 module) -  refraction etc. 
-  
 
 
