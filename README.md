@@ -1,6 +1,6 @@
 # MICB-475-Project-2-Team12
 
-###Team meeting 1:
+##Team meeting 1:
 - Discussed possible metadata options; depression or cancer?
 - Depression dataset has not been used before; needs more wrangling
 - Cancer dataset has less variables; possibly combine data with other cancer datasets
