@@ -26,8 +26,8 @@ row.names(metadata) <- row.names(metadata_other)
 #since score of >=21 is moderate depression or more, cut off there
 metadata_dep_cat <- metadata %>%
   mutate(dep_cat = case_when(
-    bdi_ii < 21 ~ "not depressed",
-    bdi_ii >= 21 ~ "depressed"
+    bdi_ii < 20 ~ "not depressed",
+    bdi_ii >= 20 ~ "depressed"
   ))
 
 #checking to make sure all columns make sense
@@ -59,3 +59,4 @@ depression_metadata <- read_csv("depression_metadata.csv")
 
 
 #merge the new with the old??? not really necessary cause the old one also had BDI
+
