@@ -42,8 +42,9 @@ Team meeting dicussions:
 - Filter out NAs for blood pressure result
 - Must categorize blood pressure results --> make sure we still have enough sample
 - Start proposal: (assignment 3 module) -  rarefraction etc. --> questions must be aided by literature with strong citations
+
 For next week:
 - divide up work for proposal
-- finalize research question - Does blood pressure 
+- finalize research question -  
 
 
