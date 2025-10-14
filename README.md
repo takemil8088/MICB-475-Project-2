@@ -21,10 +21,8 @@ What we did from last week:
 - Filtered for HIV and hcv, found number of depressed (57) and not depressed(99) within this population
 
 Goal: 
-
 - determine best ways to work on the files
-
--determine how we want to document
+- determine how we want to document
 
 Questions:
 - whould we be working with the dataset on the server or transferring it to our local computer
@@ -32,6 +30,14 @@ Questions:
 - is sample size big enough
 - should we remove some not depressed
 - What is wrong with Veronika's file (longmeta_phyloseq_rare.RData)
-  
+
+  Next step:
+  - download metadata from server, then join the two data
+  - Determine blood pressure categories next
+  - additional column that adds both status, ex( depression+high bloodpressure, depression+low pressure)
+  - Then can move on to QIIME
+  - Literature review for the proposal
+  - solidfy the correlation between microbiome and depression, then we are testing 
+
 
 
