@@ -45,6 +45,18 @@ Team meeting dicussions:
 
 For next week:
 - divide up work for proposal
-- finalize research question -  
+- finalize research question -
+
+### Team meeting 4 Oct 21:
+
+Goals:
+- Discuss and finalize research questions and specific aims- "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?" 
+- Divide tasks for proposal (due Oct 26, this Sunday)
+- Arrange a meeting at the end of week to discuss progress and proposal draft
+- Discuss aim-specific approaches
+  
+Questions:
+- Would like to build our project on previous research done by Bruce et al, which identified an unique bacteria taxa and altered functional pathways linked to both mood and BP control in patients diagnosed with both conditions <- "deppressive hypertension model" But is our research gap valid or strong enough? Our current research question is "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?"(https://www.sciencedirect.com/science/article/pii/S0002870321001228?via%3Dihub)
+
 
 
