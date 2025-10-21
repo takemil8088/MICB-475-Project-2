@@ -64,3 +64,35 @@ Divided Tasks:
 3. Leyi:
 4. Millie
 5. Vera:
+
+Notes:
+- Sam suggested for us to not look at what the paper we found it did, so we discussed what are other things we could look at:
+  -  Medication: look at the same matrix, but then add medication to our reseach matrix, however the medication had many N/As
+  -  Diabetes: are metadata also has diabetes, microbiome vs diabetes and depression or microbiome vs diabetes and hypertension
+  -  blood glucose
+  -  calcium and other mineral things
+ 
+  Did the paper look at a sex difference in the literature?
+  - Sam said we could look at co-variables like sex or age, 
+  -  We can stratify based on co-founders
+    
+  Current plan:
+  - Look at if there is a gap in stratifying based on co-factor for a day, then pivot if we don't find literature to validate our reasoning to go forward.
+  - Additional question, does our dataset look at type 1 or type 2 diabetes. Determined it is type 2 diabetes.
+ 
+  Next, got feedback on our code:
+  - Can it be more efficient ->  .x and .y showed up after left join, however it was fine.
+  - can create a for loop to make hypertension
+  - our matrix of depresseion vs hypertension has enough samples (even at our low of 18 samples)
+    
+ However if we are adding another stratifier then we might have too few samples, so we could lower the number that is our bdi cut off to include mild depression.
+ However we determined based on size of dataset we can't have a matrix comparison of depresssion vs hypertension vs diabetes.
+ If we do stratifying, the way we group ages is important and would maybe affect number of samples between groups, we would maybe need to split sampeles at a single age like 50, depends on literature review.
+
+Idea: examine different groupings of stratification, so we can also look at both age and then sex.
+
+Code: If we want to filter the manifest the same as the metadata, we just left join the manifest.
+
+SAM: Cite all the tools we use, denoising, any databases, when we are making figures the figure legend at bottom, title at top, qiime processing use checklist. Teaching team wants to see if someone looked at sex difference and found it's important, then we should see if it's important when both are combined, while the paper just looks at if they are important seperately.
+Additional note: estrogen related to female indivduals ability too absorb vitamin D, menopause stops at around specific age, which could be a point to look at and an interesting justification.
+    
