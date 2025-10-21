@@ -56,7 +56,7 @@ Goals:
 - Discuss aim-specific approaches
   
 Questions:
-- Would like to build our project on previous research done by Bruce et al, which identified an unique bacteria taxa and altered functional pathways linked to both mood and BP control in patients diagnosed with both conditions <- "deppressive hypertension model" But is our research gap valid or strong enough? Our current research question is "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?"(https://www.sciencedirect.com/science/article/pii/S0002870321001228?via%3Dihub)
+Our current research question is "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?" Would like to build our project on previous research done by Bruce et al, which identified an unique bacteria taxa and altered functional pathways linked to both mood and BP control in patients diagnosed with both conditions. The researchers studied wide scale gut microbiome functional genomic differences. We plan narrowing it down and study the function of specific species differentially abundant in each cohort. But is our research gap valid or strong enough? (https://www.sciencedirect.com/science/article/pii/S0002870321001228?via%3Dihub)
 
 
 
