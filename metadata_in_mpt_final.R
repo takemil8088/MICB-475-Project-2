@@ -67,3 +67,50 @@ meta_joined <- left_join(meta_novir, depression_metadata, by = join_by(`rowname`
 
 #save
 save(meta_joined, file = "metadata_join.RData")
+
+#remove duplicate columns ending in .x or .y
+#to do this we will get list of all column names ending in .x
+xn <- names(meta_joined)[endsWith(names(meta_joined),".x")]
+#remove the .x
+nms <- str_replace_all(string = xn,
+                   pattern = ".x",
+                   replacement="") 
+#create data frame with one copy of only columns ending in .x and .y ie duplicate columns and rename without the x and y
+meta_dup_col = map_dfc(nms,
+        ~ coalesce(meta_joined[[paste0(.,".x")]],
+                   meta_joined[[paste0(.,".y")]]
+        )) %>% setNames(nms) 
+#remove columns ending in x or y from joined dataframe
+meta_joined_no_dup = select(meta_joined, select=-ends_with(".x"), -ends_with(".y")) 
+#merge the two datasets together
+meta_joined_final = bind_cols(meta_joined_no_dup, meta_dup_col) 
+#ngl I thought there were a lot more duplicated columns then there were prob could've just removed them manually :(
+
+#save 
+save(meta_joined_final, file = "metadata_join_final.RData")
+
+#select only the columns we are interested in so we have a smaller metadata table to work with (I left anything vaguely related to blood pressure so we can probably remove more columns later)
+meta_subset = select(meta_joined_final, sample_id = rowname, hiv_status_clean, hcv, ethnicity, race, host_age, sex, dep_cat, diastolic_bp, pulse_pressure, pulse, systolic_BP, diabetes, mch, mchc, rdw, hgb,glucose_serum, Creatinine, alt_sgpt, ast_sgot, lymphocyte_percent)
+
+#creating a hypertension column
+#create empty column called hypertension
+meta_subset$hypertension = NA
+#fill hypertension column with yes or no based only on systolic bp
+meta_subset$hypertension = ifelse(meta_subset$systolic_BP >= 130, "hypertension", "no_hypertension")
+#replace hypertension column value with yes if diastolic bp is high
+meta_subset$hypertension = ifelse(meta_subset$diastolic_bp >80, "hypertension", meta_subset$hypertension)
+
+#make column with both depression and hypertension
+meta_subset = unite(meta_subset, dep_and_hyp, dep_cat, hypertension, sep = "_", remove=FALSE, na.rm = FALSE)
+
+#save
+save(meta_subset, file = "metadata_subset.RData")
+
+#count how many have hypertension
+dim(meta_subset) #156 total samples
+table(meta_subset$hypertension, useNA = "always") #77 hypertension, 56 normal bp, 23 NA
+
+#count how many have depression and hypertension together
+table(meta_subset$dep_and_hyp) #31 depressed_hypertension, 18 depressed_no_hypertension, 46 not depressed_hypertension, 38 not depressed_no_hypertension, 8 depressed_NA, 15 not depressed_NA
+#there are more for not depressed so it would probably be okay to decrease BDI cutoff to 10 to have more depressed and be more clinically relevant
+#what do we do with the NAs for hypertension??
