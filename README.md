@@ -95,4 +95,15 @@ Code: If we want to filter the manifest the same as the metadata, we just left j
 
 SAM: Cite all the tools we use, denoising, any databases, when we are making figures the figure legend at bottom, title at top, qiime processing use checklist. Teaching team wants to see if someone looked at sex difference and found it's important, then we should see if it's important when both are combined, while the paper just looks at if they are important seperately.
 Additional note: estrogen related to female indivduals ability too absorb vitamin D, menopause stops at around specific age, which could be a point to look at and an interesting justification.
-    
+
+Team meeting Oct 28:
+Trimming at 150bp- to so all sequences same length, don't have to trim beginning 10bp
+Filter to remove rare ASVs?
+sampling depth 20000
+
+Research aims should directly stratify age and sex and look at microbiome
+What is the clinical takeaway, talk about clinical implications in the introduction.
+Determine the methods and specific aims, give background on each aim- why are we looking at this? 
+step 1: qiime2 processing- each step, then aim-specific 
+ASM citation style: american society for microbiology- zotero
+In the final paper, title should be the conclusion
