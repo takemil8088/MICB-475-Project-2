@@ -115,3 +115,11 @@ Topic 1: Proposal check in regarding approach and gantt page
 Topic 2: Presentation and Manuscript
 
 Topic 3: Check in regarding game plan (task splitting)
+
+Conversation of topic 1:
+- agreed regarding timeline was in agreement to seperate out the aims and have each person do one portion of the aim
+- Conversation regarding aim 2: we wanted to show that each group has a distinct composition, and show how distinct it is compared to the others
+- Sam: DeSeq is comparing two groups, dependent analysis,
+- we can look at the stratifiers using DeSeq, but should only compare those that are significantly different for alpha and beta diversity.
+- People use beta diversity for composition being different, alpha is difference within itself, beta shows composition between, we should do beta and alpha in paralell, use the info of alpha and beta diversity to determine which we use for DeSeq
+- SAM: for DeSeq we will find what is important from alpha and beta, also run PICRUst2 through order of importance 
