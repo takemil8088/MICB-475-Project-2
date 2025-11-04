@@ -122,4 +122,10 @@ Conversation of topic 1:
 - Sam: DeSeq is comparing two groups, dependent analysis,
 - we can look at the stratifiers using DeSeq, but should only compare those that are significantly different for alpha and beta diversity.
 - People use beta diversity for composition being different, alpha is difference within itself, beta shows composition between, we should do beta and alpha in paralell, use the info of alpha and beta diversity to determine which we use for DeSeq
-- SAM: for DeSeq we will find what is important from alpha and beta, also run PICRUst2 through order of importance 
+- SAM: for DeSeq we will find what is important from alpha and beta, also run PICRUst2 through order of importance
+
+Conversation of topic 2:
+- github push conversation, NOTE NAME BY THE DATE TO KNOW WHICH VERSION IS MOST RECENT
+- for manuscript: make sure the comments are good since that is very important for the methods
+- SAM clarified the presentation: most marks are about how we formated the slides/figures and whether our data supports our conclusions, most important conclusion is supported by our graph, put thoughts into future directions, great if the last meeting with evelyn the presetnation is done so we can confirm with her graph, future directiosns and conclusion with Evelyn
+- We have a short amount of time to coach the team presenting our information, must be able to look at any graph that was taught
