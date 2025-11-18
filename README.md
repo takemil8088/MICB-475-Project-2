@@ -176,3 +176,8 @@ Primary focus: see if there is a functional difference! and mention how the stra
 Change research question: Looking at the differences between bacterial taxonomic and functional profiles in patients with hypertension, depression, or comorbidity, stratifying by sex and age
 
 Add conclusion at the end of proposal --> add in limitations such as having limited samples, and what to look for next time 
+
+Suggestions:
+- Facet the graphs to see patterns between the ages (one for age one for sex) --> 4 panel figure
+- Change the beta diversity graph; straitifers should be symbols and diseases should be colours
+- taxa bar plots; include unstratified data, but leave teh stratified bar plots in the supplemental sections
