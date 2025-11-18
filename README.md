@@ -162,8 +162,8 @@ Current state: Error occurs during Command Line
       focus on comorbidity and just control for age and sex - what does this mean? 
   -hypothesis: what do we need to add to make it more complete? functional stuff or hypretension/depression alone
 
-### Team meeting 7 Nov 18th:
-Discussion: looked at alpha diversity; found no sig. Differences between the depression hypertension variables, further separated diversity (PD) with age, but still not significant differences
+### Discussion
+looked at alpha diversity; found no sig. Differences between the depression hypertension variables, further separated diversity (PD) with age, but still not significant differences
 (shannon) → also no difference 
 Taxonomy bar plot study: Conclusion: at least within these ages & sex, no differences between the bacterial compositions 
 
