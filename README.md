@@ -129,3 +129,10 @@ Conversation of topic 2:
 - for manuscript: make sure the comments are good since that is very important for the methods
 - SAM clarified the presentation: most marks are about how we formated the slides/figures and whether our data supports our conclusions, most important conclusion is supported by our graph, put thoughts into future directions, great if the last meeting with evelyn the presetnation is done so we can confirm with her graph, future directiosns and conclusion with Evelyn
 - We have a short amount of time to coach the team presenting our information, must be able to look at any graph that was taught
+
+### Team Meeting 7 Nov 18th:
+
+#Picrust 
+Current state: Error occurs during Command Line 
+- Regardless of doing the same thing as the tutorial
+
