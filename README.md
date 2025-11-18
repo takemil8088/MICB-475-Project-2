@@ -130,19 +130,30 @@ Conversation of topic 2:
 - SAM clarified the presentation: most marks are about how we formated the slides/figures and whether our data supports our conclusions, most important conclusion is supported by our graph, put thoughts into future directions, great if the last meeting with evelyn the presetnation is done so we can confirm with her graph, future directiosns and conclusion with Evelyn
 - We have a short amount of time to coach the team presenting our information, must be able to look at any graph that was taught
 
-### Team Meeting 7 Nov 18th:
+## Team Meeting 7 Nov 18th:
 
-#Picrust 
+### Alpha diversity 
+![alt text](Aim_1/plot_pd_condition.png)
+![alt text](Aim_1/plot_pd_age.png)
+![alt text](Aim_1/plot_pd_sex.png)
+![alt text](Aim_1/plot_shannon_condition.png)
+![alt text](Aim_1/plot_shannon_age.png)
+![alt text](Aim_1/plot_shannon_sex.png)
+![alt text](Aim_1/plot_taxonomy_condition.png)
+![alt text](Aim_1/plot_taxonomy_age.png)
+![alt text](Aim_1/plot_taxonomy_sex.png)
+
+### Beta diversity
+  ![alt text](images/plot_pcoa.png)
+  ![alt text](images/plot_pcoa_age.png)
+  ![alt text](images/plot_pcoa_sex.png)
+
+### Picrust 
 Current state: Error occurs during Command Line 
 - Regardless of doing the same thing as the tutorial
 - last step leads to error where only an intermediate file is made
 
-#Alpha diversity 
-
-#Beta diversity
-  ![alt text](images/plot_pcoa_sex.png)
-
-#Proposal"
+### Proposal"
   - project simplification?
       how can we modify though because its already so similar to what's been done. if we remove analyses how will it be different?
 
