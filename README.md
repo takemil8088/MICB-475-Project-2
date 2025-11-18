@@ -137,5 +137,13 @@ Current state: Error occurs during Command Line
 - Regardless of doing the same thing as the tutorial
 - last step leads to error where only an intermediate file is made
 
-  #Beta diversity
+#Alpha diversity 
+
+#Beta diversity
   ![alt text](images/plot_pcoa_sex.png)
+
+#Proposal"
+  - project simplification?
+      how can we modify though because its already so similar to what's been done. if we remove analyses how will it be different?
+
+  
