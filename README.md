@@ -136,3 +136,6 @@ Conversation of topic 2:
 Current state: Error occurs during Command Line 
 - Regardless of doing the same thing as the tutorial
 - last step leads to error where only an intermediate file is made
+
+  #Beta diversity
+  
