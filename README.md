@@ -161,5 +161,18 @@ Current state: Error occurs during Command Line
       how can we modify though because its already so similar to what's been done. if we remove analyses how will it be different?
       focus on comorbidity and just control for age and sex - what does this mean? 
   -hypothesis: what do we need to add to make it more complete? functional stuff or hypretension/depression alone
-  -
-  
+
+### Team meeting 7 Nov 18th:
+Discussion: looked at alpha diversity; found no sig. Differences between the depression hypertension variables, further separated diversity (PD) with age, but still not significant differences
+(shannon) → also no difference 
+Taxonomy bar plot study: Conclusion: at least within these ages & sex, no differences between the bacterial compositions 
+
+Beta diversity graph → The low percentage for beta diversity indicates there aren't differences between the bacterial compositions despite having depression or hypertension.
+--> Add circle for Confidence Interval (stat_elipse function)
+Picrust analysis → essential if we aren’t seeing the differences (to see if there are any functional differences) —>  drop the sex and age --> Since we are looking at a different dataset than the previous study looking at the same question, we don't need to perform the sex and age statifiers BUT only for the funcional analysis, keep it for everything else 
+
+Primary focus: see if there is a functional difference! and mention how the stratifiers don't have a significant impact on bacterial composition
+
+Change research question: Looking at the differences between bacterial taxonomic and functional profiles in patients with hypertension, depression, or comorbidity, stratifying by sex and age
+
+Add conclusion at the end of proposal --> add in limitations such as having limited samples, and what to look for next time 
