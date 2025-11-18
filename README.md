@@ -143,11 +143,14 @@ Conversation of topic 2:
 ![alt text](Aim_1/plot_taxonomy_age.png)
 ![alt text](Aim_1/plot_taxonomy_sex.png)
 
+stat test for PD not working?
 ### Beta diversity
   ![alt text](images/plot_pcoa.png)
   ![alt text](images/plot_pcoa_age.png)
   ![alt text](images/plot_pcoa_sex.png)
 
+ -how to properly do PERMANOVA?
+ 
 ### Picrust 
 Current state: Error occurs during Command Line 
 - Regardless of doing the same thing as the tutorial
@@ -156,5 +159,7 @@ Current state: Error occurs during Command Line
 ### Proposal"
   - project simplification?
       how can we modify though because its already so similar to what's been done. if we remove analyses how will it be different?
-
+      focus on comorbidity and just control for age and sex - what does this mean? 
+  -hypothesis: what do we need to add to make it more complete? functional stuff or hypretension/depression alone
+  -
   
