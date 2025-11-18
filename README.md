@@ -138,4 +138,4 @@ Current state: Error occurs during Command Line
 - last step leads to error where only an intermediate file is made
 
   #Beta diversity
-  
+  ![alt text](images/plot_pcoa_sex.png)
