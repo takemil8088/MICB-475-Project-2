@@ -181,3 +181,7 @@ Suggestions:
 - Facet the graphs to see patterns between the ages (one for age one for sex) --> 4 panel figure
 - Change the beta diversity graph; straitifers should be symbols and diseases should be colours
 - taxa bar plots; include unstratified data, but leave teh stratified bar plots in the supplemental sections
+
+## Team meeting 8 Nov 25th:
+
+Feedback on 
