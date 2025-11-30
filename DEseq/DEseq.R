@@ -17,22 +17,54 @@ load("dep_rare.RData")
 # Data transformed since there are 0 counts in OTU table
 dep_rare_plus1 <- transform_sample_counts(dep_rare, function(x) x+1)
 
-#converting to DEseq
-dep_deseq <- phyloseq_to_deseq2(dep_rare_plus1, ~`dep_hyp_age`)
+#single out the samples with just the two conditions of interest
 
-# step 2: run DEseq, 
-DESEQ_dep <- DESeq(dep_deseq)
+# dep_hyp_age corresnding to what
+#  healthy --> "not depressed_no_hypertension_60 and older"
+#  hypertension --> "not depressed_hypertension_60 and older"
+#  depressed --> "depressed_no_hypertension_60 and older"
+#  both --> "depressed_hypertension_60 and older"
+
+ctrl_dep <- prune_samples(
+  dep_rare_plus1@sam_data[["dep_hyp_age"]] == "not depressed_no_hypertension_60 and older" |
+    dep_rare_plus1@sam_data[["dep_hyp_age"]] == "depressed_no_hypertension_60 and older",
+  dep_rare_plus1)
+
+ctrl_hyp <- prune_samples(
+  dep_rare_plus1@sam_data[["dep_hyp_age"]] == "not depressed_no_hypertension_60 and older" |
+    dep_rare_plus1@sam_data[["dep_hyp_age"]] == "not depressed_hypertension_60 and older",
+  dep_rare_plus1)
+
+ctrl_both <- prune_samples(
+  dep_rare_plus1@sam_data[["dep_hyp_age"]] == "not depressed_no_hypertension_60 and older" |
+    dep_rare_plus1@sam_data[["dep_hyp_age"]] == "depressed_hypertension_60 and older",
+  dep_rare_plus1)
+
+
+#converting & running DEseq fr each
+DESEQ_ctrl_dep <- phyloseq_to_deseq2(ctrl_dep, ~`dep_hyp_age`) %>% 
+  DESeq()
+
+DESEQ_ctrl_hyp <- phyloseq_to_deseq2(ctrl_hyp, ~`dep_hyp_age`) %>% 
+  DESeq()
+
+DESEQ_ctrl_both <- phyloseq_to_deseq2(ctrl_both, ~`dep_hyp_age`) %>% 
+  DESeq()
+
+DESEQ_test <- phyloseq_to_deseq2(test, ~`dep_hyp_age`) %>% 
+  DESeq()
+
 
 #step 3: VIsualizing results for the three comparisons
 # which bug is richer/not richer, and only for 60 and older?
 
 #function to do the result + visualization so code wouldn't have to be copy+pasted
-visualize <- function(c1, t, file_suffix){
+visualize <- function(c1, t, file_suffix, deseq1, phylo, col){
   #t is title for the volcano/bar plots
   #c1 is contrasts
   
   #extract results for that contrast
-  res <- results(DESEQ_dep, tidy=TRUE, contrast = c1)
+  res <- results(deseq1, tidy=TRUE, contrast = c1)
   #View(res1)
   
   #Volcano plot: effect size VS significance
@@ -61,23 +93,29 @@ visualize <- function(c1, t, file_suffix){
   
   # organize information for bar plot
   sigASVs <- 
-    prune_taxa(sigASVs_vec,dep_rare) %>% #keep just significant ASVs from dep_rare
+    prune_taxa(sigASVs_vec, test) %>% #keep just significant ASVs from phyloseq obj
     tax_table() %>% as.data.frame() %>% #get taxa table and change to dataframe format
     rownames_to_column(var="ASV") %>% 
     right_join(sigASVs) %>% #join the taxa info to the ASVs
+    mutate(Taxonomy = if_else(!grepl("", Genus) | grepl("NA", Genus), Family, Genus)) %>% #if genus is NA use family to identify
     arrange(log2FoldChange) %>% #order by log2foldchange
-    mutate(Genus = make.unique(Genus)) %>% #IDK what these 2 does
-    mutate(Genus = factor(Genus, levels=unique(Genus)))
+    mutate(Taxonomy = make.unique(Taxonomy)) %>% #IDK what these 2 does
+    mutate(Taxonomy = factor(Taxonomy, levels=unique(Taxonomy)))
+  
   
   #make the bar plot
   bar_plot <- ggplot(sigASVs) +
-    geom_bar(aes(x=Genus, y=log2FoldChange), stat="identity")+
-    geom_errorbar(aes(x=Genus, ymin=log2FoldChange-lfcSE, ymax=log2FoldChange+lfcSE)) +
+    geom_bar(aes(x=Taxonomy, y=log2FoldChange), stat="identity", fill = col)+
+    geom_errorbar(aes(x=Taxonomy, ymin=log2FoldChange-lfcSE, ymax=log2FoldChange+lfcSE)) +
     theme(axis.text.x = element_text(angle=90, hjust=1, vjust=0.5)) +
-    labs(title = t)
+    labs(title = t) +
+    theme_classic() +
+    theme(axis.text.x=element_text(angle = -90, hjust = 0))
   
-  ggsave(filename = paste("bar_plot_", file_suffix,".png", sep = ""), bar_plot)
-  
+  #save the bar plot
+  ggsave(filename = paste("bar_plot_", file_suffix,".png", sep = ""), bar_plot,
+         height = 7,
+         width = 7)
   
 }
 
@@ -93,18 +131,27 @@ visualize(c1 = c("dep_hyp_age",
                    "not depressed_hypertension_60 and older",
                    "not depressed_no_hypertension_60 and older"),
           t = "Control VS Hypertension", 
-          file_suffix = "ctrl_hyp")
+          file_suffix = "ctrl_hyp",
+          deseq1 = DESEQ_ctrl_hyp,
+          phylo = ctrl_hyp,
+          col = "#00bfc4")
 
 #control vs depression
 visualize(c1 = c("dep_hyp_age",
                  "depressed_no_hypertension_60 and older",
                  "not depressed_no_hypertension_60 and older"),
           t = "Control VS Depression", 
-          file_suffix = "ctrl_dep")
+          file_suffix = "ctrl_dep",
+          deseq1 = DESEQ_ctrl_dep,
+          phylo = ctrl_dep,
+          col = "#7cae00")
 
 #control vs both
 visualize(c1 = c("dep_hyp_age",
                  "depressed_hypertension_60 and older",
                  "not depressed_no_hypertension_60 and older"),
           t = "Control VS Both", 
-          file_suffix = "ctrl_both")
+          file_suffix = "ctrl_both",
+          deseq1 = DESEQ_ctrl_both,
+          phylo = ctrl_both,
+          col = "#f8766d")
