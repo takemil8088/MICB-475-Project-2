@@ -184,4 +184,25 @@ Suggestions:
 
 ## Team meeting 8 Nov 25th:
 
-Feedback on 
+(written notes must be transfered)
+
+
+# Team meeting 9 Dec 2nd:
+
+Suggested figures:
+
+Figure 1: 
+- Alpha (include faiths so we can show it's abundance)
+- old vs young
+- Sex will be supplemental
+
+Figure 2:
+- Beta diversity
+
+Avril agrees with our hypthesis - if capture is small in our bray curtis, then we can be missing the data that drives the alpha diversity difference
+FOr the DESeq we only use unrarified, so we need to go back and fix these mistakes
+Should add beta diversity plot for under 60 so it ties 
+The DESeq could be supplemental
+
+Make arrow
+
