@@ -1,22 +1,77 @@
 # MICB-475-Project-2-Team12
 
-### Team meeting 1:
+## Team meeting 1:
+
+### Summary:
+During this meeting the primary aim was to begin to think of the different project ideas that our group could do, as well as discuss what datasets the group gravitates towards. The group discussed two possible datasests that could be used, depression or cancer dataset. The cancer dataset is smaller, so the idea that was brought up was to combine it with another cancer dataset that the team finds. An idea that was suggested was to find a colon cancer dataset (the initial dataset was gastric cancer) and to compare functional and compositional diversity between the two groups, as well as examine iron utilization between microbiomes. The other idea was to examine the depression dataset, specifically examining in the metadata how hypertension and depression are connected, and how the gut microbiome affects them both. The future steps of the team was to see if any additional datasets could be found for the cancer project, and if nothing was successful then to choose to go with the depression dataset.
+
+To Do:
+- Find additional cancer datasets
+
+Notes:
 - Discussed possible metadata options; depression or cancer?
 - Depression dataset has not been used before; needs more wrangling
-- Cancer dataset has less variables; possibly combine data with other cancer datasets
+- Cancer dataset has less variables; possibly combine data with other cancer datasets -> could combine to compare iron utilization between datasets of gut microbes 
 
-### Team meeting 2: 
+
+## Team meeting 2: 
+
+### Summary:
+The team sent some papers with cancer samples, however the papers that were expected had very few samples. The team debated between the two for a bit before deciding to go with the depression dataset. The depression dataset was very well annotated and also has many samples. It was also biologically backed up due to previous literature indicating the microbiome affects depression and hypertension through the cardiovascular system. Therefore we decided to use the depression dataset 
+
+
+### Disscusion regarding the two samples:
+idea 1: combine colorectal and gastric cancer
+- discussion abt data sets
+- very small dataset?
+- gastric cancer one has a lot of healthy and stages samples
+- gastric vs colorectal stages?
+- filter gastric cancer to one site
+
+idea 2: depression dataset
+- and very well annotated
+- depression & hypertension on health and the microbiome
+- biologically backed up - microbiome affects health thru the cardiovascular syste,
+- less limitations
+- see if hypertension/depression vs normal, then combine cancer? no one has said they wanted to do this
+
+The paper we got back had very few samples, the study could be can see how similar or different the CRC vs gastric cancer? The gastric database is very deep in detail, but doesn’t have many samples per site/
+The depression dataset might be better since there is more data, and it’s simpler, lots of samples. 
+Have it separate than combined 
+
+
+To do:
+- Upload data into QIIME2, categorize metadata (priority is processing)
+- Filter data, must do matas
+- Do classification, classify metadata, clean metadata, metadata must match manifest so use your own manifest, make sure metadata and manifest are the same
+- fix metadata (metadata is not priority, processing is), remove samples with no metadata and remove those same samples from teh manifest
+- add column for what each depression scale value is classified clinically
+- and QUIME (how spell) the data (ASVs and how many sample categories are left for each to see which variables are good to compare)
+- dig into metadata and which which ones has the most samples
+- look at their paper and steal the metadata: https://ojs.library.ubc.ca/index.php/UJEMI/article/view/200793 is paper, and github is at https://github.com/edsobcz/MICB475_Team8
+- bajillion columns and a bunch of unapplicable data; the original paper https://ojs.library.ubc.ca/index.php/UJEMI/article/view/200793
+- determine what depression testing to use PALMS or BDI score
+
+Notes:
+- do all 100 samples?
+- looked at integrase treatment
+- previous student group only looked at coinfection one, not depression - go to their github and find their metadata which is more complete. if not, contact the team (TODO) sebastian, emily, emily
+- if it has depression but not hypertension or vice versa, keep it?
+- palms????????? catagorize if cliniclly depressed, slightly, or healthy (get the scale??)
+- BDI scoring??? only has one measurement, choose one way to measure the depression. it also has ppl with 0 so those are control (just do depressed/non-depressed), so likely do this instead of palms HIV/HCV 
 - Finalized: use the depression metadata → will need to annotate the data
 - Linking depression with blood pressure
 - Possibility; linking blood pressure to cancer, then to depression?
 - First, must perform a Classification ( plateau → understand which category and variables are good to look at), then Filter out missing data, annotate (what's considered clinically depressed? Pick one; bdi (use this one; depressed vs non-depressed, don't use range) or poms)
 - Filter for viruses and get only controls; see who has bdi of above 10
-Control; original dataset is based on depression, HIV etc. → only choose co-infected data
-Get the more completed metadata (look at Github)
-Manifest only the variables we need (do the same filtering you did for the metadata (same data)) --> but don’t be too biased 
-By October 26th; obtain the completed metadata, and classify and filter it (make sure the filtering matches the manifest data!)
+- Control; original dataset is based on depression, HIV etc. → only choose co-infected data
+- Get the more completed metadata (look at Github)
+- Manifest only the variables we need (do the same filtering you did for the metadata (same data)) --> but don’t be too biased 
+- By October 26th; obtain the completed metadata, and classify and filter it (make sure the filtering matches the manifest data!)
 
-### Team meeting 3
+
+
+## Team meeting 3
 What we did from last week:
 - Filtered for HIV and hcv, found number of depressed (57) and not depressed(99) within this population
 
