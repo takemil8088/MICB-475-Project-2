@@ -22,7 +22,7 @@ visualize <- function(c1, t, file_suffix, deseq1, phylo, col){
   vol_plot <- res %>%
     
     #differentiating significant and insignificant points to be plotted
-    mutate(significant = padj<0.01 & abs(log2FoldChange)>2) %>% 
+    mutate(significant = padj<0.01 & abs(log2FoldChange)>5) %>% 
     filter(padj > 0) %>% #justto get rid of rows with padj = NA
     ggplot() +
     
@@ -53,7 +53,7 @@ visualize <- function(c1, t, file_suffix, deseq1, phylo, col){
   #Bar plot
   # To get table of results
   sigASVs <- res %>% 
-    filter(padj<0.01 & abs(log2FoldChange)>2) %>%
+    filter(padj<0.01 & abs(log2FoldChange)>5) %>%
     dplyr::rename(ASV=row)
   
   # Get only asv names
@@ -233,4 +233,5 @@ visualize(c1 = c("dep_hyp_age",
           deseq1 = DESEQ_ctrl_both_60,
           phylo = ctrl_both,
           col = "#f8766d")
+
 
