@@ -1,0 +1,310 @@
+library(tidyverse)
+library(phyloseq)
+library(ggpicrust2)
+library(readr)
+library(tibble)
+library(ggprism)
+library(patchwork)
+library(devtools)
+
+meta <- read.delim("metadata_final_amb.tsv") %>% 
+  data.frame() %>% filter(row_number() <= n()-1)
+  
+ko <- read.delim('pred_metagenome_unstrat.tsv', row.names = 1)
+
+
+ #comparsion of age for depressed dep_hyp_age_comparison
+ dep_hyp_age_comparison <- meta %>% filter(dep_hyp_age %in% 
+                                 c("depressed_hypertension_60 and older", 
+   "depressed_hypertension_under 60"))
+ 
+ ko_filtered_dep_hyp_age_comparison <- ko %>% select(all_of(dep_hyp_age_comparison$sample.id))
+ 
+ dep_hyp_age_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_dep_hyp_age_comparison,
+                              metadata = dep_hyp_age_comparison,
+                              group = "dep_hyp_age",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+ 
+ dep_hyp_age_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = dep_hyp_age_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+ 
+ saveRDS(dep_hyp_age_daa_annotated_results_df,"dep_hyp_age_daa_annotated_results_df.rds")
+dep_hyp_age_daa_annotated_results_df <- readRDS("dep_hyp_age_daa_annotated_results_df.rds")
+
+
+ #comparsion of age for control age nodep_nohyp_age_comparison
+ nodep_nohyp_age_comparison <- meta %>% filter(dep_hyp_age %in%
+                                 c("not depressed_no_hypertension_60 and older",
+   "not depressed_no_hypertension_under 60"))
+ 
+ko_filtered_nodep_nohyp_age_comparison <- ko %>% select(all_of(nodep_nohyp_age_comparison$sample.id))
+ 
+ nodep_nohyp_age_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_nodep_nohyp_age_comparison,
+                              metadata = nodep_nohyp_age_comparison,
+                              group = "dep_hyp_age",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+ 
+ nodep_nohyp_age_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = nodep_nohyp_age_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+
+saveRDS(nodep_nohyp_age_daa_annotated_results_df,"nodep_nohyp_age_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, dep_hypvscontrol
+ dep_hypvscontrol_comparison <- meta %>% filter(dep_hyp %in%
+                                 c("not depressed_no_hypertension","depressed_hypertension"))
+ 
+ ko_filtered_dep_hypvscontrol_comparison <- ko %>% select(all_of(dep_hypvscontrol_comparison$sample.id))
+ 
+# dep_hypvscontrol_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_dep_hypvscontrol_comparison,
+                              metadata = dep_hypvscontrol_comparison,
+                              group = "dep_hyp",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+ 
+ dep_hypvscontrol_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = dep_hypvscontrol_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+
+saveRDS(dep_hypvscontrol_comparison_daa_annotated_results_df,"dep_hypvscontrol_comparison_daa_annotated_results_df.rds")
+
+#comparsion of conditions, dep_hypvscontrol_60older
+dep_hypvscontrol_60older_comparison <- meta %>% filter(dep_hyp_age %in%
+                                c("depressed_hypertension_60 and older",
+                                  "not depressed_no_hypertension_60 and older"))
+
+ko_filtered_dep_hypvscontrol_60older_comparison <- ko %>% select(all_of(dep_hypvscontrol_60older_comparison$sample.id))
+
+dep_hypvscontrol_60older_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_dep_hypvscontrol_60older_comparison,
+                             metadata = dep_hypvscontrol_60older_comparison,
+                             group = "dep_hyp_age",
+                             daa_method = "LinDA",
+                            select = NULL, reference = NULL)
+
+dep_hypvscontrol_60older_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                       daa_results_df = dep_hypvscontrol_60older_comparison_daa_results_df,
+                                       ko_to_kegg = TRUE)
+
+saveRDS(dep_hypvscontrol_60older_comparison_daa_annotated_results_df,"dep_hypvscontrol_60older_comparison_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, dep_hypvscontrol_under60
+ dep_hypvscontrol_under60_comparison <- meta %>% filter(dep_hyp_age %in%
+                                 c("not depressed_no_hypertension_under 60",
+                                   "depressed_hypertension_under 60"))
+ 
+ ko_filtered_dep_hypvscontrol_under60_comparison <- ko %>% select(all_of(dep_hypvscontrol_under60_comparison$sample.id))
+ 
+ dep_hypvscontrol_under60_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_dep_hypvscontrol_under60_comparison,
+                              metadata = dep_hypvscontrol_under60_comparison,
+                              group = "dep_hyp_age",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+ 
+ dep_hypvscontrol_under60_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = dep_hypvscontrol_under60_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+
+saveRDS(dep_hypvscontrol_under60_comparison_daa_annotated_results_df,"dep_hypvscontrol_under60_comparison_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, hypvscontrol
+ hypvscontrol_comparison <- meta %>% filter(dep_hyp %in%
+                                 c("not depressed_hypertension",
+                                   "not depressed_no_hypertension"))
+ 
+ ko_filtered_hypvscontrol_comparison <- ko %>% select(all_of(hypvscontrol_comparison$sample.id))
+ 
+ hypvscontrol_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_hypvscontrol_comparison,
+                              metadata = hypvscontrol_comparison,
+                              group = "dep_hyp",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+ 
+ hypvscontrol_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = hypvscontrol_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+saveRDS(hypvscontrol_comparison_daa_annotated_results_df,"hypvscontrol_comparison_daa_annotated_results_df.rds")
+
+ #comparsion of conditions, hypvscontrol_60older
+ hypvscontrol_60older_comparison <- meta %>% filter(dep_hyp_age %in%
+                                 c("not depressed_no_hypertension_60 and older",
+                                   "not depressed_hypertension_60 and older"))
+
+ ko_filtered_hypvscontrol_60older_comparison <- ko %>% select(all_of(hypvscontrol_60older_comparison$sample.id))
+
+ hypvscontrol_60older_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_hypvscontrol_60older_comparison,
+                              metadata = hypvscontrol_60older_comparison,
+                              group = "dep_hyp_age",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+
+ hypvscontrol_60older_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = hypvscontrol_60older_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+
+saveRDS(hypvscontrol_60older_comparison_daa_annotated_results_df,"hypvscontrol_60older_comparison_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, hypvscontrol_under60
+ hypvscontrol_under60_comparison <- meta %>% filter(dep_hyp_age %in%
+                                 c("not depressed_no_hypertension_under 60",
+                                   "not depressed_hypertension_under 60"))
+
+ ko_filtered_hypvscontrol_under60_comparison <- ko %>% select(all_of(hypvscontrol_under60_comparison$sample.id))
+
+hypvscontrol_under60_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_hypvscontrol_under60_comparison,
+                              metadata = hypvscontrol_under60_comparison,
+                              group = "dep_hyp_age",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+
+ hypvscontrol_under60_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                       daa_results_df = hypvscontrol_under60_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+
+saveRDS(hypvscontrol_under60_comparison_daa_annotated_results_df,"hypvscontrol_under60_comparison_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, depvscontrol
+ depvscontrol_comparison <- meta %>% filter(dep_hyp %in%
+                                c("not depressed_no_hypertension",
+                                   "depressed_no_hypertension"))
+ 
+ ko_filtered_depvscontrol_comparison <- ko %>% select(all_of(depvscontrol_comparison$sample.id))
+ 
+ depvscontrol_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_depvscontrol_comparison,
+                              metadata = depvscontrol_comparison,
+                             group = "dep_hyp",
+                              daa_method = "LinDA",
+                              select = NULL, reference = NULL)
+ 
+ depvscontrol_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                        daa_results_df = depvscontrol_comparison_daa_results_df,
+                                        ko_to_kegg = TRUE)
+
+saveRDS(depvscontrol_comparison_daa_annotated_results_df,"depvscontrol_comparison_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, depvscontrol_60older
+ depvscontrol_60older_comparison <- meta %>% filter(dep_hyp_age %in%
+                                              c("not depressed_no_hypertension_60 and older",
+                                                "depressed_no_hypertension_60 and older"))
+ 
+ ko_filtered_depvscontrol_60older_comparison <- ko %>% select(all_of(depvscontrol_60older_comparison$sample.id))
+ 
+ depvscontrol_60older_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_depvscontrol_60older_comparison,
+                                                      metadata = depvscontrol_60older_comparison,
+                                                      group = "dep_hyp_age",
+                                                      daa_method = "LinDA",
+                                                      select = NULL, reference = NULL)
+ 
+ depvscontrol_60older_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                                                        daa_results_df = depvscontrol_60older_comparison_daa_results_df,
+                                                                        ko_to_kegg = TRUE)
+
+saveRDS(depvscontrol_60older_comparison_daa_annotated_results_df,"depvscontrol_60older_comparison_daa_annotated_results_df.rds")
+
+
+ #comparsion of conditions, depvscontrol_under60
+ depvscontrol_under60_comparison <- meta %>% filter(dep_hyp_age %in%
+                                              c("not depressed_no_hypertension_under 60",
+                                                "depressed_no_hypertension_under 60"))
+ 
+ ko_filtered_depvscontrol_under60_comparison <- ko %>% select(all_of(depvscontrol_under60_comparison$sample.id))
+ 
+ depvscontrol_under60_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_depvscontrol_under60_comparison,
+                                                      metadata = depvscontrol_under60_comparison,
+                                                      group = "dep_hyp_age",
+                                                      daa_method = "LinDA",
+                                                      select = NULL, reference = NULL)
+ 
+ depvscontrol_under60_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                                                        daa_results_df = depvscontrol_under60_comparison_daa_results_df,
+                                                                        ko_to_kegg = TRUE)
+
+saveRDS(depvscontrol_under60_comparison_daa_annotated_results_df,"depvscontrol_under60_comparison_daa_annotated_results_df.rds")
+
+ #comparsion of conditions, hyp_age_comparison
+ hyp_age_comparison <- meta %>% filter(dep_hyp_age %in%
+                                              c("not depressed_hypertension_under 60",
+                                                "not depressed_hypertension_60 and older"))
+ 
+ ko_filtered_hyp_age_comparison <- ko %>% select(all_of(hyp_age_comparison$sample.id))
+ 
+ hyp_age_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_hyp_age_comparison,
+                                                      metadata = hyp_age_comparison,
+                                                      group = "dep_hyp_age",
+                                                      daa_method = "LinDA",
+                                                      select = NULL, reference = NULL)
+ 
+ hyp_age_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                                                        daa_results_df = hyp_age_comparison_daa_results_df,
+                                                                        ko_to_kegg = TRUE)
+
+saveRDS(hyp_age_comparison_daa_annotated_results_df,"hyp_age_comparison_daa_annotated_results_df.rds")
+
+
+
+# comparsion of conditions, dep_age_comparison
+ dep_age_comparison <- meta %>% filter(dep_hyp_age %in%
+                                              c("depressed_no_hypertension_under 60",
+                                                "depressed_no_hypertension_60 and older"))
+ 
+ ko_filtered_dep_age_comparison <- ko %>% select(all_of(dep_age_comparison$sample.id))
+ 
+ dep_age_comparison_daa_results_df = pathway_daa(abundance = ko_filtered_dep_age_comparison,
+                                                      metadata = dep_age_comparison,
+                                                      group = "dep_hyp_age",
+                                                      daa_method = "LinDA",
+                                                      select = NULL, reference = NULL)
+ 
+ dep_age_comparison_daa_annotated_results_df <- pathway_annotation(pathway = "KO",
+                                                                        daa_results_df = dep_age_comparison_daa_results_df,
+                                                                        ko_to_kegg = TRUE)
+
+saveRDS(dep_age_comparison_daa_annotated_results_df,"dep_age_comparison_daa_annotated_results_df.rds")
+
+
+peb_hypvscontrol_60older_comparison = pathway_errorbar(abundance = ko_filtered_hypvscontrol_60older_comparison,
+                                                           daa_results_df = hypvscontrol_60older_comparison_daa_annotated_results_df,
+                                                           Group = hypvscontrol_60older_comparison$dep_hyp_age,
+                                                           p_values_threshold = 0.05,
+                                                           order = "pathway_class",
+                                                           ko_to_kegg = FALSE,
+                                                           p_value_bar = TRUE,
+                                                           x_lab = "pathway_name")
+ggsave("KEGG_Error_bar_peb_hypvscontrol_60older_comparison.png",
+       plot = peb_hypvscontrol_60older_comparison, dpi = 700,
+       width = 27, height = 5, units = c("in"))
+
+peb_depvscontrol_60older_comparison = pathway_errorbar(abundance = ko_filtered_depvscontrol_60older_comparison,
+                                                           daa_results_df = depvscontrol_60older_comparison_daa_annotated_results_df,
+                                                           Group = depvscontrol_60older_comparison$dep_hyp_age,
+                                                           p_values_threshold = 0.05,
+                                                           order = "pathway_class",
+                                                           ko_to_kegg = FALSE,
+                                                           p_value_bar = TRUE,
+                                                           x_lab = "pathway_name")
+ggsave("KEGG_Error_bar_peb_depvscontrol_60older_comparison.png",
+       plot = peb_depvscontrol_60older_comparison, dpi = 700,
+       width = 27, height = 5, units = c("in"))
+
+peb_dep_hypvscontrol_60older_comparison = pathway_errorbar(abundance = ko_filtered_dep_hypvscontrol_60older_comparison,
+                                                           daa_results_df = dep_hypvscontrol_60older_comparison_daa_annotated_results_df,
+                                                           Group = dep_hypvscontrol_60older_comparison$dep_hyp_age,
+                                                           p_values_threshold = 0.05,
+                                                           order = "pathway_class",
+                                                           ko_to_kegg = FALSE,
+                                                           p_value_bar = TRUE,
+                                                           x_lab = "pathway_name")
+ggsave("KEGG_Error_bar_peb_dep_hypvscontrol_60older_comparison.png",
+       plot = peb_dep_hypvscontrol_60older_comparison, dpi = 700,
+       width = 27, height = 5, units = c("in"))
+
+
+
