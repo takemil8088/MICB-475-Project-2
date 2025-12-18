@@ -27,7 +27,7 @@ visualize <- function(c1, t, file_suffix, deseq1, phylo, col){
     ggplot() +
     
     #dashed lines
-    geom_vline(xintercept = c(-2, 2), col = "gray", linetype = 'dashed') +
+    geom_vline(xintercept = c(-5, 5), col = "gray", linetype = 'dashed') +
     geom_hline(yintercept = -log10(0.01), col = "gray", linetype = 'dashed') + 
     
     #adding points
@@ -81,8 +81,7 @@ visualize <- function(c1, t, file_suffix, deseq1, phylo, col){
   bar_plot <- ggplot(sigASVs) +
     geom_bar(aes(x=Taxonomy, y=log2FoldChange), stat="identity", fill = col)+
     geom_errorbar(aes(x=Taxonomy, ymin=log2FoldChange-lfcSE, ymax=log2FoldChange+lfcSE)) +
-    theme(axis.text.x = element_text(angle=90, hjust=1, vjust=0.5),
-         axis.text.y = element_text(size = 16 )) +
+    theme(axis.text.x = element_text(angle=90, hjust=1, vjust=0.5)) +
     labs(title = t) +
     theme_classic() +
     ylim(-10, 10) +
@@ -234,6 +233,4 @@ visualize(c1 = c("dep_hyp_age",
           deseq1 = DESEQ_ctrl_both_60,
           phylo = ctrl_both,
           col = "#f8766d")
-
-
 
