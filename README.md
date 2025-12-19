@@ -17,10 +17,8 @@ Notes:
 ## Team meeting 2: 
 
 **Meeting Agenda:**
-Goal: discuss datasets with the whole team present and decide on a project topic - review project ideas based on the background research we've done about the topics and the datasets we've found. Are the datasets good?
 
-### Summary:
-The team sent teaching team some papers with cancer samples, however the papers that were expected had very few samples. The team debated between the two for a bit before deciding to go with the depression dataset. The depression dataset was very well annotated and also has many samples. It was also biologically backed up due to previous literature indicating the microbiome affects depression and hypertension through the cardiovascular system. Therefore we decided to use the depression dataset 
+Goal: discuss datasets with the whole team present and decide on a project topic - review project ideas based on the background research we've done about the topics and the datasets we've found. Are the datasets good?
 
 ### Disscusion regarding the two samples:
 
@@ -42,8 +40,12 @@ The paper we got back had very few samples, the study could be can see how simil
 The depression dataset might be better since there is more data, and it’s simpler, lots of samples. 
 Have it separate than combined 
 
+**Meeting Notes:**
 
-To do:
+### Summary:
+The team sent teaching team some papers with cancer samples, however the papers that were expected had very few samples. The team debated between the two for a bit before deciding to go with the depression dataset. The depression dataset was very well annotated and also has many samples. It was also biologically backed up due to previous literature indicating the microbiome affects depression and hypertension through the cardiovascular system. Therefore we decided to use the depression dataset 
+
+#To do:
 - Upload data into QIIME2, categorize metadata (priority is processing)
 - Filter data, must do matas
 - Do classification, classify metadata, clean metadata, metadata must match manifest so use your own manifest, make sure metadata and manifest are the same
@@ -55,7 +57,7 @@ To do:
 - bajillion columns and a bunch of unapplicable data; the original paper https://ojs.library.ubc.ca/index.php/UJEMI/article/view/200793
 - determine what depression testing to use PALMS or BDI score
 
-Notes:
+#Notes:
 - do all 100 samples?
 - looked at integrase treatment
 - previous student group only looked at coinfection one, not depression - go to their github and find their metadata which is more complete. if not, contact the team (TODO) sebastian, emily, emily
