@@ -18,7 +18,7 @@ Notes:
 
 **Meeting Agenda:**
 
-Goal: discuss datasets with the whole team present and decide on a project topic - review project ideas based on the background research we've done about the topics and the datasets we've found. Are the datasets good?
+#Goal: discuss datasets with the whole team present and decide on a project topic - review project ideas based on the background research we've done about the topics and the datasets we've found. Are the datasets good?
 
 ### Disscusion regarding the two samples:
 
