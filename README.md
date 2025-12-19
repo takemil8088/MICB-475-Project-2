@@ -78,15 +78,15 @@ The team sent teaching team some papers with cancer samples, however the papers 
 
 **Meeting Agenda**
 
-What we did from last week:
+#What we did from last week:
 - got second metadata file from previous team
 - Metadata wrangiling: Filtered for HIV and hcv, found number of depressed (57) and not depressed(99) within this population
 
-Goal: 
+#Goal: 
 - determine best ways to work on the files
 - determine how we want to document
 
-Questions:
+#Questions:
 - would we be working with the dataset on the server or transferring it to our local computer
 - can we move a copy of it into our data folder?
 - is sample size big enough?
@@ -94,7 +94,7 @@ Questions:
 - What is wrong with Veronika's file (longmeta_phyloseq_rare.RData)?
 
 **Meeting Notes**
-Team meeting dicussions:
+#Team meeting dicussions:
 - We should equalize the sample number for depressed & not depressed
 - The completed metadata doesn't include blood pressure results; must add and match with existing filtered out data (join data)
 - 3 columns --> depression, blood pressure, & a column with both - "depression_highbp, depression_lowbp"
@@ -104,20 +104,20 @@ Team meeting dicussions:
 - Must categorize blood pressure results --> make sure we still have enough sample
 - Start proposal: (assignment 3 module) -  rarefraction etc. --> questions must be aided by literature with strong citations
 
-For next week:
+#For next week:
 - divide up work for proposal
 - finalize research questions
 
 ### Team meeting 4 Oct 21:
 
 **Meeting Agenda**
-Goals:
+#Goals:
 - Discuss and finalize research questions and specific aims- "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?" 
 - Divide tasks for proposal (due Oct 26, this Sunday)
 - Arrange a meeting at the end of week to discuss progress and proposal draft
 - Discuss aim-specific approaches
   
-Questions:
+#Questions:
 Our current research question is "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?" Would like to build our project on previous research done by Bruce et al, which identified an unique bacteria taxa and altered functional pathways linked to both mood and BP control in patients diagnosed with both conditions. The researchers studied wide scale gut microbiome functional genomic differences. We plan narrowing it down and study the function of specific species differentially abundant in each cohort. But is our research gap valid or strong enough? (https://www.sciencedirect.com/science/article/pii/S0002870321001228?via%3Dihub)
 
 **Meeting Notes:**
@@ -128,46 +128,46 @@ Our current research question is "How does the microbiome functionality differ a
   -  blood glucose
   -  calcium and other mineral things
  
-  Did the paper look at a sex difference in the literature?
+ #Did the paper look at a sex difference in the literature?
   - Sam said we could look at co-variables like sex or age, 
   -  We can stratify based on co-founders
     
-  Current plan:
+  #Current plan:
   - Look at if there is a gap in stratifying based on co-factor for a day, then pivot if we don't find literature to validate our reasoning to go forward.
   - Additional question, does our dataset look at type 1 or type 2 diabetes. Determined it is type 2 diabetes.
  
-  Next, got feedback on our code:
+  #Next, got feedback on our code:
   - Can it be more efficient ->  .x and .y showed up after left join, however it was fine.
   - can create a for loop to make hypertension
   - our matrix of depresseion vs hypertension has enough samples (even at our low of 18 samples)
     
- However if we are adding another stratifier then we might have too few samples, so we could lower the number that is our bdi cut off to include mild depression.
+ #However if we are adding another stratifier then we might have too few samples, so we could lower the number that is our bdi cut off to include mild depression.
  However we determined based on size of dataset we can't have a matrix comparison of depresssion vs hypertension vs diabetes.
  If we do stratifying, the way we group ages is important and would maybe affect number of samples between groups, we would maybe need to split sampeles at a single age like 50, depends on literature review.
 
-Idea: examine different groupings of stratification, so we can also look at both age and then sex.
+#Idea: examine different groupings of stratification, so we can also look at both age and then sex.
 
-Code: If we want to filter the manifest the same as the metadata, we just left join the manifest.
+#Code: If we want to filter the manifest the same as the metadata, we just left join the manifest.
 
-SAM: Cite all the tools we use, denoising, any databases, when we are making figures the figure legend at bottom, title at top, qiime processing use checklist. Teaching team wants to see if someone looked at sex difference and found it's important, then we should see if it's important when both are combined, while the paper just looks at if they are important seperately.
+#SAM: Cite all the tools we use, denoising, any databases, when we are making figures the figure legend at bottom, title at top, qiime processing use checklist. Teaching team wants to see if someone looked at sex difference and found it's important, then we should see if it's important when both are combined, while the paper just looks at if they are important seperately.
 Additional note: estrogen related to female indivduals ability too absorb vitamin D, menopause stops at around specific age, which could be a point to look at and an interesting justification.
 
 ### Team meeting 5 Oct 28:
 
 **Meeting Agenda:**
 
--discuss QIIME processing (show Sam where we're at ith it)
+#discuss QIIME processing (show Sam where we're at ith it)
   -is how we've done the trimming good?
   -check sampling depth
   -whould we do more filtering to remove rare ASVs?
 
-discuss the proposal
+#discuss the proposal
   -show Sam where we're at with it
   -how long is it usually? Does she have any general feedback fro things groups usually mess up?
 
 **Meeting Notes**
 
-Trimming at 150bp- to so all sequences same length, don't have to trim beginning 10bp
+#Trimming at 150bp- to so all sequences same length, don't have to trim beginning 10bp
 Filter to remove rare ASVs? yes we should add this step in 
 sampling depth 20000 is good - trouble with seing samples all at once on the rarefaction curve is a bit weird but other teams have had this issue in the past
 
@@ -182,19 +182,19 @@ In the final paper, title should be the conclusion but it's okay ith the title i
 
 **Meeting Agenda:**
 
-Topic 1: Proposal check in regarding approach and gantt page
+#Topic 1: Proposal check in regarding approach and gantt page
   -present gantt chart and discuss plan for timeline
 
-Topic 2: Presentation and Manuscript
+#Topic 2: Presentation and Manuscript
   -specific feedback on aims from proposal
   -present on our project plan from the proposal and get feedback on plan
   
-Topic 3: Check in regarding game plan (task splitting)
-Topic 4: help with github - we are having trouble pushing and pulling we've just been uploading files we're confused about the github module
+#Topic 3: Check in regarding game plan (task splitting)
+#Topic 4: help with github - we are having trouble pushing and pulling we've just been uploading files we're confused about the github module
 
 **Meeting Notes:**
 
-Conversation of topic 1:
+#Conversation of topic 1:
 - agreed regarding timeline was in agreement to seperate out the aims and have each person do one portion of the aim
 - Conversation regarding aim 2: we wanted to show that each group has a distinct composition, and show how distinct it is compared to the others
 - Sam: DeSeq is comparing two groups, dependent analysis,
@@ -202,7 +202,7 @@ Conversation of topic 1:
 - People use beta diversity for composition being different, alpha is difference within itself, beta shows composition between, we should do beta and alpha in paralell, use the info of alpha and beta diversity to determine which we use for DeSeq
 - SAM: for DeSeq we will find what is important from alpha and beta, also run PICRUst2 through order of importance
 
-Conversation of topic 2:
+#Conversation of topic 2:
 - github push conversation, NOTE NAME BY THE DATE TO KNOW WHICH VERSION IS MOST RECENT
 - for manuscript: make sure the comments are good since that is very important for the methods
 - SAM clarified the presentation: most marks are about how we formated the slides/figures and whether our data supports our conclusions, most important conclusion is supported by our graph, put thoughts into future directions, great if the last meeting with evelyn the presetnation is done so we can confirm with her graph, future directiosns and conclusion with Evelyn
@@ -210,11 +210,11 @@ Conversation of topic 2:
 
 ## Team Meeting 7 Nov 18th:
 
-**Meeting Agenda**: 
--present the data below
--Ask for help with statistical tests (faiths PD and PERMANOVA)
--ask for help with PICRUSt2
--Ask about the feedback we recieved on the proposal
+**Meeting Agenda:**
+#present the data below
+#Ask for help with statistical tests (faiths PD and PERMANOVA)
+#ask for help with PICRUSt2
+#Ask about the feedback we recieved on the proposal
 
 #Alpha diversity 
 ![alt text](Aim_1/plot_pd_condition.png)
@@ -248,7 +248,7 @@ Current state: Error occurs during Command Line
 
 **Meeting notes:**
 
-looked at alpha diversity; found no sig. Differences between the depression hypertension variables, further separated diversity (PD) with age, but still not significant differences
+#looked at alpha diversity; found no sig. Differences between the depression hypertension variables, further separated diversity (PD) with age, but still not significant differences
 (shannon) → also no difference 
 Taxonomy bar plot study: Conclusion: at least within these ages & sex, no differences between the bacterial compositions 
 
@@ -262,7 +262,7 @@ Change research question: Looking at the differences between bacterial taxonomic
 
 Add conclusion at the end of proposal --> add in limitations such as having limited samples, and what to look for next time 
 
-Suggestions:
+#Suggestions:
 - Facet the graphs to see patterns between the ages (one for age one for sex) --> 4 panel figure
 - Change the beta diversity graph; straitifers should be symbols and diseases should be colours
 - taxa bar plots; include unstratified data, but leave teh stratified bar plots in the supplemental sections
@@ -270,12 +270,12 @@ Suggestions:
 ## Team meeting 8 Nov 25th:
 
 **Meeting Agenda:**
--present our graphs and data to Evelyn, Avril, and Sam and get feedback, 
--discuss plans for manuscript
+#present our graphs and data to Evelyn, Avril, and Sam and get feedback, 
+#discuss plans for manuscript
 
 **Meeting notes:**
 
-These are the conclusions we came to from the discussion this meeting:
+#These are the conclusions we came to from the discussion this meeting:
 
 #to do:
 -Beta diversity separate age groups onto different graphs, run a PERMANOVA
@@ -296,13 +296,14 @@ Supplemental figure 1. Faiths diversity
 
 # Team meeting 9 Dec 2nd:
 
-Meeting agenda:
-Discuss our data with teaching team:
+**Meeting agenda:**
+
+#Discuss our data with teaching team:
 -Alpha diversity is significant but beta is not - why is this?
 -DESeq results are significant but what to do with them
 -we are still struggling with PICRUSt2 why is it not working?
 
-Changes to figure order:
+#Changes to figure order:
 Figure 1: 
 - Alpha (include faiths so we can show it's abundance not phylogenetic differences changing the diversity)
 - stratified as old vs young
