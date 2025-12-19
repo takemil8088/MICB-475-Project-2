@@ -16,11 +16,14 @@ Notes:
 
 ## Team meeting 2: 
 
-### Summary:
-The team sent some papers with cancer samples, however the papers that were expected had very few samples. The team debated between the two for a bit before deciding to go with the depression dataset. The depression dataset was very well annotated and also has many samples. It was also biologically backed up due to previous literature indicating the microbiome affects depression and hypertension through the cardiovascular system. Therefore we decided to use the depression dataset 
+**Meeting Agenda:**
+Goal: discuss datasets with the whole team present and decide on a project topic - review project ideas based on the background research we've done about the topics and the datasets we've found. Are the datasets good?
 
+### Summary:
+The team sent teaching team some papers with cancer samples, however the papers that were expected had very few samples. The team debated between the two for a bit before deciding to go with the depression dataset. The depression dataset was very well annotated and also has many samples. It was also biologically backed up due to previous literature indicating the microbiome affects depression and hypertension through the cardiovascular system. Therefore we decided to use the depression dataset 
 
 ### Disscusion regarding the two samples:
+
 idea 1: combine colorectal and gastric cancer
 - discussion abt data sets
 - very small dataset?
@@ -69,25 +72,26 @@ Notes:
 - Manifest only the variables we need (do the same filtering you did for the metadata (same data)) --> but don’t be too biased 
 - By October 26th; obtain the completed metadata, and classify and filter it (make sure the filtering matches the manifest data!)
 
-
-
 ## Team meeting 3
+
+**Meeting Agenda**
+
 What we did from last week:
-- Filtered for HIV and hcv, found number of depressed (57) and not depressed(99) within this population
+- got second metadata file from previous team
+- Metadata wrangiling: Filtered for HIV and hcv, found number of depressed (57) and not depressed(99) within this population
 
 Goal: 
-
 - determine best ways to work on the files
-
--determine how we want to document
+- determine how we want to document
 
 Questions:
-- whould we be working with the dataset on the server or transferring it to our local computer
-- can we move a copy of it into our data folder
-- is sample size big enough
-- should we remove some not depressed
-- What is wrong with Veronika's file (longmeta_phyloseq_rare.RData)
+- would we be working with the dataset on the server or transferring it to our local computer
+- can we move a copy of it into our data folder?
+- is sample size big enough?
+- should we remove some not depressed?
+- What is wrong with Veronika's file (longmeta_phyloseq_rare.RData)?
 
+**Meeting Notes**
 Team meeting dicussions:
 - We should equalize the sample number for depressed & not depressed
 - The completed metadata doesn't include blood pressure results; must add and match with existing filtered out data (join data)
@@ -100,10 +104,11 @@ Team meeting dicussions:
 
 For next week:
 - divide up work for proposal
-- finalize research question -
+- finalize research questions
 
 ### Team meeting 4 Oct 21:
 
+**Meeting Agenda**
 Goals:
 - Discuss and finalize research questions and specific aims- "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?" 
 - Divide tasks for proposal (due Oct 26, this Sunday)
@@ -113,14 +118,8 @@ Goals:
 Questions:
 Our current research question is "How does the microbiome functionality differ across patients with high blood pressure, clinical depression, cormorbid conditions and patients with neither condition?" Would like to build our project on previous research done by Bruce et al, which identified an unique bacteria taxa and altered functional pathways linked to both mood and BP control in patients diagnosed with both conditions. The researchers studied wide scale gut microbiome functional genomic differences. We plan narrowing it down and study the function of specific species differentially abundant in each cohort. But is our research gap valid or strong enough? (https://www.sciencedirect.com/science/article/pii/S0002870321001228?via%3Dihub)
 
-Divided Tasks:
-1. Sophie: 
-2. Artemis:
-3. Leyi:
-4. Millie
-5. Vera:
+**Meeting Notes:**
 
-Notes:
 - Sam suggested for us to not look at what the paper we found it did, so we discussed what are other things we could look at:
   -  Medication: look at the same matrix, but then add medication to our reseach matrix, however the medication had many N/As
   -  Diabetes: are metadata also has diabetes, microbiome vs diabetes and depression or microbiome vs diabetes and hypertension
@@ -152,24 +151,46 @@ SAM: Cite all the tools we use, denoising, any databases, when we are making fig
 Additional note: estrogen related to female indivduals ability too absorb vitamin D, menopause stops at around specific age, which could be a point to look at and an interesting justification.
 
 ### Team meeting 5 Oct 28:
+
+**Meeting Agenda:**
+
+-discuss QIIME processing (show Sam where we're at ith it)
+  -is how we've done the trimming good?
+  -check sampling depth
+  -whould we do more filtering to remove rare ASVs?
+
+discuss the proposal
+  -show Sam where we're at with it
+  -how long is it usually? Does she have any general feedback fro things groups usually mess up?
+
+**Meeting Notes**
+
 Trimming at 150bp- to so all sequences same length, don't have to trim beginning 10bp
-Filter to remove rare ASVs?
-sampling depth 20000
+Filter to remove rare ASVs? yes we should add this step in 
+sampling depth 20000 is good - trouble with seing samples all at once on the rarefaction curve is a bit weird but other teams have had this issue in the past
 
 Research aims should directly stratify age and sex and look at microbiome
 What is the clinical takeaway, talk about clinical implications in the introduction.
 Determine the methods and specific aims, give background on each aim- why are we looking at this? 
 step 1: qiime2 processing- each step, then aim-specific 
 ASM citation style: american society for microbiology- zotero
-In the final paper, title should be the conclusion
+In the final paper, title should be the conclusion but it's okay ith the title is general for now
 
 ### Team meeting 6 Nov 4th:
 
+**Meeting Agenda:**
+
 Topic 1: Proposal check in regarding approach and gantt page
+  -present gantt chart and discuss plan for timeline
 
 Topic 2: Presentation and Manuscript
-
+  -specific feedback on aims from proposal
+  -present on our project plan from the proposal and get feedback on plan
+  
 Topic 3: Check in regarding game plan (task splitting)
+Topic 4: help with github - we are having trouble pushing and pulling we've just been uploading files we're confused about the github module
+
+**Meeting Notes:**
 
 Conversation of topic 1:
 - agreed regarding timeline was in agreement to seperate out the aims and have each person do one portion of the aim
@@ -187,7 +208,13 @@ Conversation of topic 2:
 
 ## Team Meeting 7 Nov 18th:
 
-### Alpha diversity 
+**Meeting Agenda**: 
+-present the data below
+-Ask for help with statistical tests (faiths PD and PERMANOVA)
+-ask for help with PICRUSt2
+-Ask about the feedback we recieved on the proposal
+
+#Alpha diversity 
 ![alt text](Aim_1/plot_pd_condition.png)
 ![alt text](Aim_1/plot_pd_age.png)
 ![alt text](Aim_1/plot_pd_sex.png)
@@ -198,26 +225,27 @@ Conversation of topic 2:
 ![alt text](Aim_1/plot_taxonomy_age.png)
 ![alt text](Aim_1/plot_taxonomy_sex.png)
 
-stat test for PD not working?
-### Beta diversity
+Ask - stat test for PD not working?
+#Beta diversity
   ![alt text](images/plot_pcoa.png)
   ![alt text](images/plot_pcoa_age.png)
   ![alt text](images/plot_pcoa_sex.png)
 
- -how to properly do PERMANOVA?
+ Ask - how to properly do PERMANOVA?
  
-### Picrust 
+#Picrust questions 
 Current state: Error occurs during Command Line 
 - Regardless of doing the same thing as the tutorial
 - last step leads to error where only an intermediate file is made
 
-### Proposal"
+#Proposal questions
   - project simplification?
       how can we modify though because its already so similar to what's been done. if we remove analyses how will it be different?
       focus on comorbidity and just control for age and sex - what does this mean? 
   -hypothesis: what do we need to add to make it more complete? functional stuff or hypretension/depression alone
 
-### Discussion
+**Meeting notes:**
+
 looked at alpha diversity; found no sig. Differences between the depression hypertension variables, further separated diversity (PD) with age, but still not significant differences
 (shannon) → also no difference 
 Taxonomy bar plot study: Conclusion: at least within these ages & sex, no differences between the bacterial compositions 
@@ -239,25 +267,73 @@ Suggestions:
 
 ## Team meeting 8 Nov 25th:
 
-(written notes must be transfered)
+**Meeting Agenda:**
+-present our graphs and data to Evelyn, Avril, and Sam and get feedback, 
+-discuss plans for manuscript
+
+**Meeting notes:**
+
+These are the conclusions we came to from the discussion this meeting:
+
+#to do:
+-Beta diversity separate age groups onto different graphs, run a PERMANOVA
+-PICRUSt2 split by age only
+-Faith's PD email evelyn about stats
+-Run DESeq
+-change the theme of graphs to make them look better
+-make a  powerpoint
+
+Figure Layout for Manuscript:
+Figure 1. Shannon and Bray curtis stratified by age
+Figure 2. Shannon and bray curtis stratified by sex
+Figure 3. Taxa bar plots 
+Figure 4. Functional results (if significant)
+Figure 5. DESeq (60 and older only)
+Supplemental figure 1. Faiths diversity
 
 
 # Team meeting 9 Dec 2nd:
 
-Suggested figures:
+Meeting agenda:
+Discuss our data with teaching team:
+-Alpha diversity is significant but beta is not - why is this?
+-DESeq results are significant but what to do with them
+-we are still struggling with PICRUSt2 why is it not working?
 
+Changes to figure order:
 Figure 1: 
-- Alpha (include faiths so we can show it's abundance)
-- old vs young
-- Sex will be supplemental
+- Alpha (include faiths so we can show it's abundance not phylogenetic differences changing the diversity)
+- stratified as old vs young
+
+Supplemental figure 1. Shannon and Bray curtis stratified by sex
 
 Figure 2:
 - Beta diversity
 
 Avril agrees with our hypthesis - if capture is small in our bray curtis, then we can be missing the data that drives the alpha diversity difference
 FOr the DESeq we only use unrarified, so we need to go back and fix these mistakes
-Should add beta diversity plot for under 60 so it ties 
+Should add beta diversity plot for under 60 so it ties in
 The DESeq could be supplemental
 
-Make arrow
+**Updates from Additional Meeting with Evelyn:**
+
+Figure 1. alpha diversity stratified by age (observed features, shannons, and faiths)
+Figure 2. Beta diversity stratified by age (Bray Curtis)
+Figure 3. taxa bar plots
+Figure 4. DESeq
+  -are the taxa differences in hypertension vs comorbidity the same or different?
+  -both volcano plots and bar plots
+  -over 60 only - put under 60 in the supplemental?
+Figure 5. (table 1) PICRUSt2
+  -no major differences in functional pathways - Evelyn says 3 pathways is not significant
+  -discussion: link to deseq, changes in taxa are not functional
+Supplemental figure 1. Alpha diversity stratified by sex
+
+Future directions:
+  -short term - indicator taxa analysis
+  -long term - thnk what would be the perfect study
+
+Limitations:
+  -classification ofo hypertension and depression from metadata
+
 
